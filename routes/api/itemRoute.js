@@ -24,8 +24,11 @@ router.get("/items", (req, res) => {
 });
 
 //update
-router.put("/items", (req, res) => {
-
+router.put("/items/:id", (req, res) => {
+  Item.findByIdAndUpdate(req.params.id, {name: req.body.name}, (err, uItem) => {
+    if (err) console.log(err);
+    else console.log(`Item updated: ${uItem.name}`);
+  });
 });
 
 //delete

@@ -64,6 +64,7 @@ export default class itemList extends Component {
       return (
         <tr key={item.key}>
           <td>{item.name}</td>
+          <td style={{width: "2%"}}><Button href={`/${item.key}`} id={item.key} variant="warning">Edit</Button></td>
           <td style={{width: "2%"}}><Button onClick={this.handleDelete} id={item.key} variant="danger" type="submit">X</Button></td>
         </tr>
       );
@@ -71,7 +72,7 @@ export default class itemList extends Component {
   }
 
   //Delete item
-  handleDelete = (e) => {
+  handleDelete = e => {
     //delete from database
     const curId = e.target.id;
     axios.delete(`/items/${curId}`)
@@ -82,9 +83,6 @@ export default class itemList extends Component {
     })
     .catch(err => console.log(err));
   }
-
-  //Update item
-  
 
   render() {
     return (

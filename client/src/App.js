@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route } from "react-router-dom";
 import itemList from "../src/components/itemList";
+import edit from "../src/components/edit";
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path="/" component={itemList} />
+          <Route path="/:id" component={edit} />
         </Switch>
   
         <link

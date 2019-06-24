@@ -8,6 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 app.use(bodyParser.json());
 mongoose.connect("mongodb://localhost/mern1", {useNewUrlParser: true})
+//mongoose.connect("mongodb+srv://tarrasque18:<password>@mern0-jqfum.mongodb.net/test?retryWrites=true")
 .then(console.log("Connected to MongoDB"));
 app.use("/", items);
 
